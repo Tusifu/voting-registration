@@ -4,6 +4,7 @@
     Author     : Edison
 --%>
 
+<%@page import="dao.DistrictDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -44,11 +45,16 @@
 				<td>District:</td>
                                 <td><select name="District" required="true">
                                         <option></option>
-					<option>Nyarugenge</option>
-					<option>Gasabo</option>
+                                        <option><%= new DistrictDAO().getDistrictName().get(0) %></option>
+                                        <option><%= new DistrictDAO().getDistrictName().get(1) %></option>
+                                        <option><%= new DistrictDAO().getDistrictName().get(3) %></option>
+                                        <option><%= new DistrictDAO().getDistrictName().get(3) %></option>
+                                        <option><%= new DistrictDAO().getDistrictName().get(4) %></option>
+                                        
+<!--					<option>Gasabo</option>
 					<option>Kicukiro</option>
 					<option>Rubavu</option>
-					<option>Musanze</option>
+					<option>Musanze</option>-->
 				</select></td>
 			</tr>
                         

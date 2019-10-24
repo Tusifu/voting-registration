@@ -6,6 +6,7 @@
 package dao;
 
 import domain.Citizen;
+import domain.District;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -47,5 +48,5 @@ public class CitizenDAO {
     Query q=s.createQuery("from Citizen");
     List<Citizen> li=q.list();
     return li;       
-    }
+    }   
 }

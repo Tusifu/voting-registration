@@ -5,10 +5,15 @@
  */
 package main;
 
+import dao.CitizenDAO;
+import dao.DistrictDAO;
+import domain.District;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
+import org.hibernate.Session;
+import util.HibernateUtil;
 
 /**
  *
@@ -24,7 +29,7 @@ public class MainClass {
 //        district.setCitizen(li);
 //        
 //        Citizen ct=new Citizen();
-        Date date=new SimpleDateFormat("yyyy-MM-dd").parse("2019-10-27");
+//        Date date=new SimpleDateFormat("yyyy-MM-dd").parse("2019-10-27");
 //        //Date d=new Date();
 //                
 //        long ms= (System.currentTimeMillis() - date.getTime());
@@ -38,17 +43,23 @@ public class MainClass {
 //        ct.setNationalId("1");
 
 //        new CitizenDAO().Create(ct);
-           int currentYear = (date.getYear()+1900);
-           
-            
-            boolean n=Pattern.matches("^1"+currentYear+".*", "92019u");
-            
-            if(n == true){
-                System.out.println("you can now save");
-            }else{
-                System.out.println("please make sure incorrect national id that national id cant exist");
-            
-            }
-    }
+//           int currentYear = (date.getYear()+1900);
+//           
+//            
+//            boolean n=Pattern.matches("^1"+currentYear+".*", "92019u");
+//            
+//            if(n == true){
+//                System.out.println("you can now save");
+//            }else{
+//                System.out.println("please make sure incorrect national id that national id cant exist");
+//            
+//            }
     
+        Session s=HibernateUtil.getSessionFactory().openSession();
+        String id=new DistrictDAO().getID("Gasabo").get(0)+"";
+        System.out.println(id);
+        
+
+
+    }
 }

@@ -4,6 +4,7 @@
     Author     : Edison
 --%>
 
+<%@page import="dao.DistrictDAO"%>
 <%@page import="java.util.regex.Pattern"%>
 <%@page import="dao.CitizenDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -24,19 +25,8 @@
             District dt = new District();
 
             dt.setName(request.getParameter("District"));
-
-            if (request.getParameter("District").equals("Nyarugenge")) {
-                dt.setId("1");
-            } else if (request.getParameter("District").equals("Gasabo")) {
-                dt.setId("2");
-            } else if (request.getParameter("District").equals("Rubavu")) {
-                dt.setId("3");
-            } else if (request.getParameter("District").equals("Musanze")) {
-                dt.setId("4");
-            } else {
-                dt.setId("5");
-            }
-
+            String id=new DistrictDAO().getID(request.getParameter("District")).get(0)+"";
+            dt.setId(id);
             List<Citizen> li = new ArrayList<>();
             dt.setCitizen(li);
             Citizen ct = new Citizen();
